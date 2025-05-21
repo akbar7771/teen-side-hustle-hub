@@ -1,264 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Teen Side Hustle Hub</title>
-  <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      scroll-behavior: smooth;
-    }
-    body {
-      background-color: #0f111a;
-      color: #d4d4d8;
-      line-height: 1.6;
-      padding: 0 15px;
-    }
-    a {
-      color: #4ade80;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #22c55e;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teen Side Hustle Hub</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #f5f7fa;
+    color: #111;
+    margin: 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+  }
+  header {
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0 0 0.3rem 0;
+  }
+  p.subtitle {
+    font-weight: 400;
+    color: #555;
+    font-size: 1.1rem;
+    margin-top: 0;
+  }
 
-    header {
-      padding: 80px 10px 40px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      color: #4ade80;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #9ca3af;
-      margin-bottom: 25px;
-    }
-    .btn-primary {
-      background: #4ade80;
-      color: #0f111a;
-      border: none;
-      padding: 14px 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(74, 222, 128, 0.6);
-      transition: background 0.3s ease;
-    }
-    .btn-primary:hover {
-      background: #22c55e;
-    }
+  main {
+    max-width: 600px;
+    width: 100%;
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.5rem;
+  }
 
-    section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 10px;
-    }
-    h2.section-title {
-      font-size: 2rem;
-      color: #4ade80;
-      margin-bottom: 25px;
-      border-bottom: 2px solid #4ade80;
-      padding-bottom: 8px;
-    }
+  /* Modern iPhone-style buttons */
+  button {
+    background: linear-gradient(145deg, #ffffff, #e6e9f0);
+    border-radius: 15px;
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    box-shadow:
+      6px 6px 12px #bec8e0,
+      -6px -6px 12px #ffffff;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.3s ease;
+    user-select: none;
+    outline-offset: 3px;
+    outline-color: #5ac8fa;
+  }
+  button:focus {
+    outline-style: solid;
+  }
+  button:hover {
+    box-shadow:
+      8px 8px 15px #a1a9c9,
+      -8px -8px 15px #ffffff;
+  }
+  button:active {
+    transform: translateY(3px);
+    box-shadow:
+      inset 4px 4px 8px #bec8e0,
+      inset -4px -4px 8px #ffffff;
+  }
 
-    /* Find Your Hustle cards */
-    .hustle-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .card {
-      background: #1f2937;
-      border-radius: 15px;
-      flex: 1 1 250px;
-      padding: 25px;
-      box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
-      transition: transform 0.3s ease;
-      cursor: default;
-    }
-    .card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 12px 20px rgba(74, 222, 128, 0.7);
-    }
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #4ade80;
-    }
-    .card p {
-      font-size: 1rem;
-      color: #d1d5db;
-    }
+  /* Responsive text block for info */
+  #info {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow:
+      6px 6px 12px #bec8e0,
+      -6px -6px 12px #ffffff;
+    padding: 1.5rem;
+    font-size: 1rem;
+    color: #333;
+    min-height: 100px;
+  }
 
-    /* Collapsible Hustle Guides */
-    details {
-      background: #1f2937;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      padding: 15px 20px;
-      box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
-      cursor: pointer;
-    }
-    summary {
-      font-weight: 600;
-      font-size: 1.2rem;
-      outline: none;
-      color: #4ade80;
-      user-select: none;
-    }
-    details[open] summary::after {
-      content: "▲";
-      float: right;
-      font-size: 1rem;
-    }
-    summary::after {
-      content: "▼";
-      float: right;
-      font-size: 1rem;
-    }
-    details p {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: #d1d5db;
-      line-height: 1.4;
-    }
-
-    /* Form styles */
-    form {
-      background: #1f2937;
-      padding: 25px 20px;
-      border-radius: 15px;
-      max-width: 450px;
-      margin: 0 auto;
-      box-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #4ade80;
-      font-size: 1rem;
-    }
-    input[type="text"], input[type="email"], select, textarea {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 18px;
-      border-radius: 10px;
-      border: none;
-      background: #111827;
-      color: #d1d5db;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
-      color: #6b7280;
-    }
-    textarea {
-      min-height: 80px;
-    }
-    input[type="submit"] {
-      background: #4ade80;
-      color: #0f111a;
-      font-weight: 700;
-      padding: 14px 30px;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      border: none;
-      transition: background 0.3s ease;
-      width: 100%;
-      box-shadow: 0 4px 10px rgba(74, 222, 128, 0.6);
-    }
-    input[type="submit"]:hover {
-      background: #22c55e;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      margin: 60px 0 30px;
-      font-size: 0.9rem;
-      color: #6b7280;
-    }
-    footer a {
-      color: #4ade80;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .hustle-cards {
-        flex-direction: column;
-      }
-    }
-  </style>
+  /* Footer */
+  footer {
+    margin-top: auto;
+    padding: 1rem 0 2rem 0;
+    font-size: 0.9rem;
+    color: #777;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
 
 <header>
   <h1>Teen Side Hustle Hub</h1>
-  <p>Turn Your Free Time Into Real Money</p>
-  <button class="btn-primary" onclick="document.getElementById('find-hustle').scrollIntoView({behavior:'smooth'})">Start Now</button>
+  <p class="subtitle">Discover the best side hustles tailored for teens</p>
 </header>
 
-<section id="find-hustle">
-  <h2 class="section-title">🔥 Find Your Hustle</h2>
-  <p>Choose a hustle based on your time, skills, and goal.</p>
-  <div class="hustle-cards">
-    <div class="card">
-      <h3>🧠 Easy Wins</h3>
-      <p>No skills needed. Fast money. Get started today with zero experience.</p>
-    </div>
-    <div class="card">
-      <h3>💻 Online Hustles</h3>
-      <p>Use your phone or laptop to make money from anywhere, anytime.</p>
-    </div>
-    <div class="card">
-      <h3>🏠 Offline Hustles</h3>
-      <p>Earn cash locally through buy/sell, gigs, or services in your area.</p>
-    </div>
-  </div>
-</section>
+<main>
+  <button onclick="showInfo('Online Tutoring')">Online Tutoring</button>
+  <button onclick="showInfo('Dropshipping')">Dropshipping</button>
+  <button onclick="showInfo('Freelance Writing')">Freelance Writing</button>
+  <button onclick="showInfo('Social Media Management')">Social Media Management</button>
+  <button onclick="showInfo('Selling Digital Products')">Selling Digital Products</button>
 
-<section id="hustle-guides">
-  <h2 class="section-title">📚 Hustle Guides</h2>
+  <div id="info">Click a hustle to see details here.</div>
+</main>
 
-  <details>
-    <summary>Resell on Instagram</summary>
-    <p>- How to find trending items</p>
-    <p>- Create a shop page</p>
-    <p>- DM method + delivery</p>
-    <p>- Profit: $20–$100/week</p>
-  </details>
+<footer>
+  &copy; 2025 Teen Side Hustle Hub — Created by Akbar
+</footer>
 
-  <details>
-    <summary>Earn with Canva Templates</summary>
-    <p>- What to design</p>
-    <p>- Where to sell (Etsy/Gumroad)</p>
-    <p>- Tools needed (free)</p>
-    <p>- Real success story</p>
-  </details>
+<script>
+  function showInfo(hustle) {
+    const info = {
+      "Online Tutoring": "Help younger students online in subjects you excel at — flexible hours and rewarding.",
+      "Dropshipping": "Sell trending products without inventory — you just handle marketing and customer service.",
+      "Freelance Writing": "Write articles, blogs, or copy for clients — improve your skills and get paid.",
+      "Social Media Management": "Manage social media accounts for small businesses or influencers.",
+      "Selling Digital Products": "Create and sell e-books, printables, or designs on platforms like Etsy."
+    };
+    document.getElementById("info").textContent = info[hustle];
+  }
+</script>
 
-  <details>
-    <summary>YouTube Faceless Shorts</summary>
-    <p>- Where to get content</p>
-    <p>- How to edit fast</p>
-    <p>- Monetize with affiliate links</p>
-  </details>
-</section>
-
-<section id="join-tribe">
-  <h2 class="section-title">🚀 Join The Tribe</h2>
-  <p>Want weekly money ideas, tools, and free eBooks? Join our mailing list!</p>
-
-  <form action="https://formspree.io/f/mayvlkyo" method="POST">
-    <label for
+</body>
+</html>
