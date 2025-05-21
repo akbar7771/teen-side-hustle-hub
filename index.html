@@ -1,141 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Teen Side Hustle Hub</title>
-<style>
-  /* Reset and base */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background: #f5f7fa;
-    color: #111;
-    margin: 0;
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    align-items: center;
-  }
-  header {
-    padding: 2rem 0 1rem 0;
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-  }
-  h1 {
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin: 0 0 0.3rem 0;
-  }
-  p.subtitle {
-    font-weight: 400;
-    color: #555;
-    font-size: 1.1rem;
-    margin-top: 0;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teen Side Hustle Hub</title>
+  <style>
+    :root {
+      --primary: #111111;
+      --accent: #00c2ff;
+      --bg: #fefefe;
+      --font: 'Segoe UI', sans-serif;
+    }
 
-  main {
-    max-width: 600px;
-    width: 100%;
-    margin-top: 2rem;
-    display: grid;
-    gap: 1.5rem;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font);
+    }
 
-  /* Modern iPhone-style buttons */
-  button {
-    background: linear-gradient(145deg, #ffffff, #e6e9f0);
-    border-radius: 15px;
-    border: none;
-    padding: 1.2rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #222;
-    box-shadow:
-      6px 6px 12px #bec8e0,
-      -6px -6px 12px #ffffff;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.3s ease;
-    user-select: none;
-    outline-offset: 3px;
-    outline-color: #5ac8fa;
-  }
-  button:focus {
-    outline-style: solid;
-  }
-  button:hover {
-    box-shadow:
-      8px 8px 15px #a1a9c9,
-      -8px -8px 15px #ffffff;
-  }
-  button:active {
-    transform: translateY(3px);
-    box-shadow:
-      inset 4px 4px 8px #bec8e0,
-      inset -4px -4px 8px #ffffff;
-  }
+    body {
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.6;
+    }
 
-  /* Responsive text block for info */
-  #info {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow:
-      6px 6px 12px #bec8e0,
-      -6px -6px 12px #ffffff;
-    padding: 1.5rem;
-    font-size: 1rem;
-    color: #333;
-    min-height: 100px;
-  }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: var(--accent);
+      color: white;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-  /* Footer */
-  footer {
-    margin-top: auto;
-    padding: 1rem 0 2rem 0;
-    font-size: 0.9rem;
-    color: #777;
-    text-align: center;
-  }
-</style>
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .btn {
+      background: var(--accent);
+      border: none;
+      padding: 1rem 2rem;
+      margin: 1rem 0;
+      border-radius: 1.5rem;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      background: #0077a8;
+    }
+
+    .section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Teen Side Hustle Hub</h1>
+    <p>Real money-making ideas for teens. No fluff.</p>
+  </header>
 
-<header>
-  <h1>Teen Side Hustle Hub</h1>
-  <p class="subtitle">Discover the best side hustles tailored for teens</p>
-</header>
+  <div class="container">
+    <button class="btn" onclick="scrollToSection('guide')">📘 Step-by-Step Guides</button>
+    <button class="btn" onclick="scrollToSection('tools')">🛠 Tools</button>
+    <button class="btn" onclick="scrollToSection('community')">💬 Join the Community</button>
 
-<main>
-  <button onclick="showInfo('Online Tutoring')">Online Tutoring</button>
-  <button onclick="showInfo('Dropshipping')">Dropshipping</button>
-  <button onclick="showInfo('Freelance Writing')">Freelance Writing</button>
-  <button onclick="showInfo('Social Media Management')">Social Media Management</button>
-  <button onclick="showInfo('Selling Digital Products')">Selling Digital Products</button>
+    <div id="guide" class="section">
+      <h2>Step-by-Step Guides</h2>
+      <p>Learn how to start dropshipping, content creation, freelancing, and more. No fake advice. Just results.</p>
+    </div>
 
-  <div id="info">Click a hustle to see details here.</div>
-</main>
+    <div id="tools" class="section">
+      <h2>Free Tools</h2>
+      <p>Access templates, planners, and automation tools to make money faster.</p>
+    </div>
 
-<footer>
-  &copy; 2025 Teen Side Hustle Hub — Created by Akbar
-</footer>
+    <div id="community" class="section">
+      <h2>Community</h2>
+      <p>Join our Discord group where teens share wins, tips, and support each other on their hustle journey.</p>
+    </div>
+  </div>
 
-<script>
-  function showInfo(hustle) {
-    const info = {
-      "Online Tutoring": "Help younger students online in subjects you excel at — flexible hours and rewarding.",
-      "Dropshipping": "Sell trending products without inventory — you just handle marketing and customer service.",
-      "Freelance Writing": "Write articles, blogs, or copy for clients — improve your skills and get paid.",
-      "Social Media Management": "Manage social media accounts for small businesses or influencers.",
-      "Selling Digital Products": "Create and sell e-books, printables, or designs on platforms like Etsy."
-    };
-    document.getElementById("info").textContent = info[hustle];
-  }
-</script>
-
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
